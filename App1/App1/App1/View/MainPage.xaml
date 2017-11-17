@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:viewModel="clr-namespace:App1.ViewModel;assembly=App1">
+  <StackLayout>
+    <Button Text="Fill Binary Tree" x:Name="Button1"></Button>
+
+    <Button Text="Alternative Binary Tree" x:Name="Button2" ></Button>
+
+    <ListView  x:Name="ListView" RowHeight="300" HorizontalOptions="CenterAndExpand" WidthRequest="600" ItemsSource="{Binding ListOfList}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell >
+            <viewModel:TLScrollView Orientation="Horizontal"   ItemsSource="{Binding ChildListProp}" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand">
+              <viewModel:TLScrollView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell>
+                    <Grid BackgroundColor="Red">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                      </Grid.ColumnDefinitions>
+                      <Label WidthRequest="100" TextColor="White"  VerticalOptions="Center"  HorizontalOptions="Center" Text="{Binding Converter={StaticResource NodeValueConverter}}"></Label>
+                    </Grid>
+                  </ViewCell>
+                </DataTemplate>
+              </viewModel:TLScrollView.ItemTemplate>
+            </viewModel:TLScrollView>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+    <Button Text="RunAsync" Command="{Binding ShowSamplesCommand}"></Button>
+    <ProgressBar Progress="{Binding ProgressBarLength}"></ProgressBar>
+    <ListView ItemsSource="{Binding ListOfSample}"></ListView>
+
+  </StackLayout>
+</ContentPage>

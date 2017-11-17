@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:App1.Converters;assembly=App1"
+             x:Class="App1.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <converters:NodeValueConverter x:Key="NodeValueConverter"></converters:NodeValueConverter>
+      <converters:NodeConverter x:Key="NodeConverter"></converters:NodeConverter>
+    </ResourceDictionary>
+    <!-- Application resource dictionary -->
+
+  </Application.Resources>
+</Application>
